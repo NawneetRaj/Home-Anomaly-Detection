@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowd & Emotion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #video-container {
+            width: 100%;
+            text-align: center;
+        }
+        #video-feed {
+            width: 80%;
+            height: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crowd and Emotion Detection</h1>
+    <div id="video-container">
+        <img id="video-feed" src="" alt="Video Feed">
+    </div>
+
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        // Establish socket connection
+        const socket = io.connect('http://localhost:5000');
+
+        socket.on('video_feed', function(data) {
+            // Create a Blob from the image data and display it
+            const imageBlob = new Blob([new Uint8Array(data.data)], { type: 'image/jpeg' });
+            const imageUrl = URL.createObjectURL(imageBlob);
+            document.getElementById('video-feed').src = imageUrl;
+        });
+    </script>
+</body>
+</html>

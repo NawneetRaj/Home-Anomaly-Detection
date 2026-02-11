@@ -1,0 +1,14 @@
+ultralytics
+opencv-python
+torch
+torchvision
+tensorflow
+keras
+pyyaml
+hydra-core
+torch
+opencv-python
+tensorflow
+ultralytics
+deep_sort_realtime  
+numpy
