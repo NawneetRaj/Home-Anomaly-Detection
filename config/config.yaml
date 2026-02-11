@@ -1,0 +1,3 @@
+detection_model: "yolov8n.pt"
+crowd_threshold: 50
+video_source: 'config\dataset\1721303-hd_1920_1080_25fps.mp4' # 0 = webcam, or 'crowd_video.mp4'
